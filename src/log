@@ -1,0 +1,23 @@
+BufferManager::BufferManager
+ParseQuery::clear
+
+Reading New Command: 
+SELECT *
+doCommand
+syntacticParse
+ParseQuery::clear
+
+Reading New Command: 
+LIST TABLES;
+doCommand
+syntacticParse
+syntacticParseLIST
+ParseQuery::clear
+
+Reading New Command: 
+quit
+ParseQuery::clear
+
+Reading New Command: 
+QUIT
+TableCatalogue::~TableCatalogue

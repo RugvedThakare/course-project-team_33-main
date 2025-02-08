@@ -2,22 +2,14 @@ BufferManager::BufferManager
 ParseQuery::clear
 
 Reading New Command: 
-SELECT *
+LOAD MATRIX A
 doCommand
 syntacticParse
-ParseQuery::clear
-
-Reading New Command: 
-LIST TABLES;
-doCommand
-syntacticParse
-syntacticParseLIST
-ParseQuery::clear
-
-Reading New Command: 
-quit
-ParseQuery::clear
-
-Reading New Command: 
-QUIT
-TableCatalogue::~TableCatalogue
+syntacticParseLOADMATRIX
+semanticParse
+semanticParseLOADMATRIX
+executeLOADMATRIX
+executePRINTMATRIX
+executeEXPORTMATRIX
+executeROTATE
+executeCROSSTRANSPOSE

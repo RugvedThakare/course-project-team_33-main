@@ -1,4 +1,5 @@
 #include "tableCatalogue.h"
+#include "matrixCatalogue.h"
 
 using namespace std;
 
@@ -18,6 +19,12 @@ enum QueryType
     SELECTION,
     SORT,
     SOURCE,
+    LOAD_MATRIX,
+    PRINT_MATRIX,
+    EXPORT_MATRIX,
+    ROTATE_MATRIX,
+    CROSS_TRANSPOSE_MATRIX,
+    CHECK_ANTI_SYMMETRY,
     UNDETERMINED
 };
 
@@ -51,6 +58,9 @@ class ParsedQuery
 
 public:
     QueryType queryType = UNDETERMINED;
+
+    std::string matrixName1;
+    std::string matrixName2;
 
     string clearRelationName = "";
 
@@ -101,6 +111,16 @@ public:
 
     string sourceFileName = "";
 
+
+    string loadMatrixName = "";
+    string printMatrixName = "";
+    string exportMatrixName = "";
+    string rotateMatrixName = "";
+    string crossTransposeMatrix1 = "";
+    string crossTransposeMatrix2 = "";
+    string checkAntiSymmetryMatrix1 = "";
+    string checkAntiSymmetryMatrix2 = "";
+
     ParsedQuery();
     void clear();
 };
@@ -123,3 +143,11 @@ bool syntacticParseSOURCE();
 
 bool isFileExists(string tableName);
 bool isQueryFile(string fileName);
+
+
+bool syntacticParseLOADMATRIX();
+bool syntacticParsePRINTMATRIX();
+bool syntacticParseEXPORTMATRIX();
+bool syntacticParseROTATEMATRIX();
+bool syntacticParseCROSSTRANSPOSEMATRIX();
+bool syntacticParseCHECKANTISYM();

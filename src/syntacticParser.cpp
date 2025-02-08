@@ -11,7 +11,19 @@ bool syntacticParse()
         return false;
     }
 
-    if (possibleQueryType == "CLEAR")
+    if (possibleQueryType == "LOAD" && tokenizedQuery[1] == "MATRIX") {
+        return syntacticParseLOADMATRIX();
+    } else if (possibleQueryType == "PRINT" && tokenizedQuery[1] == "MATRIX") {
+        return syntacticParsePRINTMATRIX();
+    } else if (possibleQueryType == "EXPORT" && tokenizedQuery[1] == "MATRIX") {
+        return syntacticParseEXPORTMATRIX();
+    } else if (possibleQueryType == "ROTATE") {
+        return syntacticParseROTATEMATRIX();
+    } else if (possibleQueryType == "CROSSTRANSPOSE") {
+        return syntacticParseCROSSTRANSPOSEMATRIX();
+    } else if (possibleQueryType == "CHECKANTISYM") {
+        return syntacticParseCHECKANTISYM();
+    }else if (possibleQueryType == "CLEAR")
         return syntacticParseCLEAR();
     else if (possibleQueryType == "INDEX")
         return syntacticParseINDEX();
@@ -54,6 +66,7 @@ bool syntacticParse()
             return false;
         }
     }
+
     return false;
 }
 
@@ -114,6 +127,17 @@ void ParsedQuery::clear()
     this->sortRelationName = "";
 
     this->sourceFileName = "";
+
+
+
+    this->loadMatrixName = "";
+    this->printMatrixName = "";
+    this->exportMatrixName = "";
+    this->rotateMatrixName = "";
+    this->crossTransposeMatrix1 = "";
+    this->crossTransposeMatrix2 = "";
+    this->checkAntiSymmetryMatrix1 = "";
+    this->checkAntiSymmetryMatrix2 = "";
 }
 
 /**

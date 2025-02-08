@@ -17,6 +17,12 @@ void executeCommand(){
         case SELECTION: executeSELECTION(); break;
         case SORT: executeSORT(); break;
         case SOURCE: executeSOURCE(); break;
+        case LOAD_MATRIX: executeLOADMATRIX();
+        case PRINT_MATRIX: executePRINTMATRIX();
+        case EXPORT_MATRIX: executeEXPORTMATRIX();
+        case ROTATE_MATRIX: executeROTATEMATRIX();
+        case CROSS_TRANSPOSE_MATRIX: executeCROSSTRANSPOSEMATRIX(); break;
+        case CHECK_ANTI_SYMMETRY: executeCHECKANTISYM();
         default: cout<<"PARSING ERROR"<<endl;
     }
 
